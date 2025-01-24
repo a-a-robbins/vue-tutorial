@@ -5,7 +5,14 @@
     <title>Vue Tutorial</title>
 </head>
 <body>
-    <div id="app">{{ message }}</div>
+    
+    <div id="app">
+        <p>{{message}}</p>
+        <p>The number of Moose is currently: {{ numMoose }}</p>
+        
+        <button @click="increment()"> Increase Moose </button>
+        <button @click="decrement"> Decrease Moose </button>
+    </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
 
@@ -13,7 +20,16 @@
         const app = Vue.createApp({
             data() {
                 return {
-                    message: "Hello Universe!"
+                    message: "Hello Universe!",
+                    numMoose: 0
+                }
+            },
+            methods: {
+                increment() {
+                    this.numMoose++;
+                },
+                decrement() {
+                    this.numMoose--;
                 }
             }
         })
